@@ -86,7 +86,7 @@ Found the user that has been planted by the admins!</br>
 
 Upon further inspection, found out the account which has the flag for constrained delegation set.
 ![image](https://user-images.githubusercontent.com/25471487/130317047-65f0c857-dcdd-4885-ab25-d9a7c43b76b3.png)
-msDS-AllowedToDelegateTo oakley from password-reset.
+msDS-AllowedToDelegateTo oakley from password-reset. SPN of the account is also listed.</br>
 
 
 Let's also run ldapdomaindump for a more visual domain dump.</br>
@@ -102,15 +102,51 @@ Other user accounts listed. </br>
 ![image](https://user-images.githubusercontent.com/25471487/130317023-669bb685-e0b6-4856-9a9d-e23d4389cbd8.png)
 
 
+Using the impacket script for finding user SPNs and encrypted password.</br>
+![image](https://user-images.githubusercontent.com/25471487/130317462-5804244c-1c1b-458e-8863-5c9e9253700b.png)
+</br>
+Found out that the error above indicates that my SPN script is not compatible with the version of impacket. Upgraded to the latest version of impacket to remove errors and got the encrypted password.</br>
+![image](https://user-images.githubusercontent.com/25471487/130317610-479f54c6-23af-4fe8-a380-0e577b52aa12.png)
 
 
+Used jTR to decrypt the password.</br>
+![image](https://user-images.githubusercontent.com/25471487/130317639-c84a36cf-a558-4d1f-a1cc-f701351ede6a.png)
 
 
+Using the impacket's find delegation to extract more information about the delegation.</br>
+![image](https://user-images.githubusercontent.com/25471487/130317667-c9dafbf7-4391-40ab-bb37-f4dec0285850.png)
 
 
+Using the impacket's getST script to impersonate and get the ticket of the Administrator user.</br>
+If the account is configured with constrained delegation (with protocol transition), we can request service tickets for other users, assuming the target SPN is allowed for delegation</br>
+![image](https://user-images.githubusercontent.com/25471487/130317704-51653b4c-f69d-406e-9ffc-e8528e87c88d.png)
+</br>
+The output of this script will be a service ticket for the Administrator user.</br>
+Once we have the ccache file, set it to the KRB5CCNAME variable and use it to our advantage.</br>
+![image](https://user-images.githubusercontent.com/25471487/130317775-b1ea3877-14c3-4dc4-af16-8582d9ae3b09.png)
+
+Using the secretsdump script from impacket to dump user hashes.</br>
+![image](https://user-images.githubusercontent.com/25471487/130317841-5e2b5dc9-5836-40f8-9b55-cc5dec59ad9d.png)
+This did not work because we have to set the domain and the IP in out /etc/hosts file.</br>
+![image](https://user-images.githubusercontent.com/25471487/130317866-7bb987a3-5661-4b13-96a2-5ca731746205.png)
+After we have done that, it should successfully dump user NTLM hashes.</br>
+![image](https://user-images.githubusercontent.com/25471487/130317957-de8c6db8-ddbe-419b-bfc4-bc792575f0be.png)
 
 
+Now, we can use evil-winrm to login as Administrator.</br>
+![image](https://user-images.githubusercontent.com/25471487/130317985-50bc0209-5bbd-4d90-b60c-a8fd8090948e.png)
 
+Found the location of rest of the flags.</br>
+![image](https://user-images.githubusercontent.com/25471487/130318012-e70d0746-4f76-460a-9dae-eee27b683550.png)
+![image](https://user-images.githubusercontent.com/25471487/130318037-1dd7d667-b99d-41ac-94bc-4fae00ee7779.png)
+
+Found the root flag!
+![image](https://user-images.githubusercontent.com/25471487/130318049-3d6968dc-d8af-489f-afa9-61724485361a.png)
+
+</br>
+
+## Privilege Escalation
+### N/A
 
 
 
