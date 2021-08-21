@@ -125,7 +125,7 @@ If the account is configured with constrained delegation (with protocol transiti
 ![image](https://user-images.githubusercontent.com/25471487/130317704-51653b4c-f69d-406e-9ffc-e8528e87c88d.png)
 </br>
 The output of this script will be a service ticket for the Administrator user.</br>
-Once we have the ccache file, set it to the KRB5CCNAME variable and use it to our advantage.</br>
+Once we have the ccache file, set it to the KRB5CCNAME variable so that it is loaded inside the memory and then we can use it to our advantage.</br>
 ![image](https://user-images.githubusercontent.com/25471487/130317775-b1ea3877-14c3-4dc4-af16-8582d9ae3b09.png)
 
 Using the secretsdump script from impacket to dump user hashes.</br>
