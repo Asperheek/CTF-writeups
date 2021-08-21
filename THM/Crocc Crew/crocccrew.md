@@ -34,7 +34,7 @@ Most of the rpcclient commands were denied and found out that only one worked!
 ![image](https://user-images.githubusercontent.com/25471487/130315436-e11bc980-ac5d-4168-8951-2f0f4ef04d7d.png)
 
 The command 'enumprivs' revealed the privileges of the current user on the machine.
-We can see that the "SeEnableDelegationPrivilege" which governs whether a user account can enable user accounts to be trusted for delegation. 
+We can see that the "SeEnableDelegationPrivilege" is listed along with "SeDelegateSessionUserImpersonatePrivilege"."SeEnableDelegationPrivilege" governs whether a user account can enable user accounts to be trusted for delegation. 
 This can factor into constrained delegation.
 You can read more about constrained/unconstrained delegation at: https://docs.microsoft.com/en-us/windows-server/security/kerberos/kerberos-constrained-delegation-overview
 
