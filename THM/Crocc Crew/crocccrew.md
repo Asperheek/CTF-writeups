@@ -18,7 +18,7 @@ You can find the room at: https://tryhackme.com/room/crocccrew
 ### /backdoor.php
 ![image](https://user-images.githubusercontent.com/25471487/130315362-2dd3d476-40de-47d8-a55d-2e98d4b1a1f9.png)
 </br>
-A php webshell - seems all commands are blocked!</br>
+A php webshell - seems that we cannot run any commands!</br>
 
 ### /db-config.bak
 ![image](https://user-images.githubusercontent.com/25471487/130314946-9932dd44-4aa8-45e7-bf81-06fb39abab07.png)
