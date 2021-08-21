@@ -76,22 +76,25 @@ Listing other shares.</br>
 Since, now we know this is an LDAP server. Let's run ldapsearch and find the namingcontexts and more information about the domain.</br>
 ![image](https://user-images.githubusercontent.com/25471487/130316605-85cc0cc9-3648-4b80-a12b-d7a14d918fe7.png)
 ![image](https://user-images.githubusercontent.com/25471487/130316617-a14f2d8d-11ec-4408-b3a1-e348e38e08c6.png)
+</br>
 Running authenticated ldapsearch and saving the result into a text file.</br>
 ![image](https://user-images.githubusercontent.com/25471487/130316623-4e51b45a-004d-47ca-b2ff-2359ef0cda9c.png)
 
 
 Let's now look at the result of the ldapsearch.</br>
 ![image](https://user-images.githubusercontent.com/25471487/130316724-5e54b288-ac69-4370-96b1-fe1210e74bc6.png)
+</br>
 Found the user that has been planted by the admins!</br>
 
 Upon further inspection, found out the account which has the flag for constrained delegation set.
 ![image](https://user-images.githubusercontent.com/25471487/130317047-65f0c857-dcdd-4885-ab25-d9a7c43b76b3.png)
+</br>
 msDS-AllowedToDelegateTo oakley from password-reset. SPN of the account is also listed.</br>
 
 
 Let's also run ldapdomaindump for a more visual domain dump.</br>
 ![image](https://user-images.githubusercontent.com/25471487/130316935-d3df0510-7495-4a42-a169-f50ae31db099.png)
-
+</br>
 
 
 Let's look at the result of the ldapdomaindump.</br>
