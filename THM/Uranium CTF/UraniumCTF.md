@@ -108,6 +108,7 @@ Also, the root user has set the SUID bit for the nano binary in our home folder.
 We can now edit the /etc/sudoers file and give all access to user hakanbey, since we have his password.</br>
 ![image](https://user-images.githubusercontent.com/25471487/131246341-e9385441-9b11-4725-82e9-2292454f3f19.png)
 ![image](https://user-images.githubusercontent.com/25471487/131246345-47fd149f-6dff-44a1-a18e-a9e3d8005ddd.png)
+</br>
 We could've also edited the /etc/passwd file and added a new user with root privileges. </br>
 
 Now, let's login to the hakanbey account and then gain access to the root user account since we have the privileges to do so.</br>
